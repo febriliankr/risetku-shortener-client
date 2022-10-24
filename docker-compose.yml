@@ -8,6 +8,6 @@ services:
     env_file:
       - .env
     ports:
-      - 5555:5000
+      - 8080:5000
     network_mode: bridge
     restart: unless-stopped

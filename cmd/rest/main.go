@@ -1,10 +1,11 @@
 package main
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
-	"net/url"
 
 	"github.com/labstack/echo/v4"
 )
@@ -14,7 +15,7 @@ func main() {
 	e.Static("/", "static")
 	e.GET("/:slug", Reroute)
 	e.POST("/create", Create)
-	e.Logger.Fatal(e.Start(":5500"))
+	e.Logger.Fatal(e.Start(":8080"))
 }
 
 func Create(c echo.Context) error {
@@ -22,16 +23,16 @@ func Create(c echo.Context) error {
 	urlForm := c.FormValue("url")
 	slugForm := c.FormValue("slug")
 
-	hc := http.Client{}
-	req, err := http.NewRequest("POST", "https://api.risetku.com/shortener", nil)
-
-	req.PostForm = url.Values{
-		"url":  {urlForm},
-		"slug": {slugForm},
+	data := map[string]string{
+		"url":  urlForm,
+		"slug": slugForm,
 	}
-	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 
-	resp, err := hc.Do(req)
+	j, err := json.Marshal(data)
+
+	bytes.NewReader(j)
+	resp, err := http.Post("POST", "https://api.risetku.com/shortener", nil)
+
 	if err != nil {
 		return c.String(http.StatusInternalServerError, err.Error())
 	}
