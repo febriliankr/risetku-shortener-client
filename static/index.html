@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riset.in</title>
+    <script src="https://unpkg.com/htmx.org@1.8.2"></script>
+
+</head>
+
+<body>
+    <h1>
+        Risetku url shortener!
+    </h1>
+
+    <form hx-post="/create" style="display: flex; flex-direction: column; max-width: 350px; gap: 0.5em;">
+        <div style="display: flex; flex-direction: column;">
+            <label for="url">URL</label>
+            <input type="text" required name="url" id="url" placeholder="eg: https://risetku.com/academy/pre-test/quiz1" />
+        </div>
+        <div style="display: flex; flex-direction: column;">
+            <label for="slug">Custom URL, will be used as <i>riset.in/newlink</i></label>
+            <input type="text" required name="slug" id="slug" placeholder="eg: newlink" />
+            
+        </div>
+        <button class=" btn btn-default">Submit</button>
+    </form>
+    <p>Made for Risetku.com | Github: febrilian.kr</p>
+</body>
+
+</html>

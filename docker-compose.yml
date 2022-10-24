@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: risetku-api
+    env_file:
+      - .env
+    ports:
+      - 5555:5000
+    network_mode: bridge
+    restart: unless-stopped
