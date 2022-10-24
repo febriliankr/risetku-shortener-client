@@ -25,9 +25,10 @@ func Create(c echo.Context) error {
 	hc := http.Client{}
 	req, err := http.NewRequest("POST", "https://api.risetku.com/shortener", nil)
 
-	form := url.Values{}
-
-	req.PostForm = form
+	req.PostForm = url.Values{
+		"url":  {urlForm},
+		"slug": {slugForm},
+	}
 	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 
 	resp, err := hc.Do(req)
