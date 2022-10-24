@@ -7,27 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riset.in</title>
     <script src="https://unpkg.com/htmx.org@1.8.2"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
 </head>
 
 <body>
-    <h1>
-        Risetku url shortener!
-    </h1>
+    <main style="max-width: 500px; margin: 4em auto 0;">
+        <h1>
+            URL Shortener
+        </h1>
 
-    <form hx-post="/create" style="display: flex; flex-direction: column; max-width: 350px; gap: 0.5em;">
-        <div style="display: flex; flex-direction: column;">
-            <label for="url">URL</label>
-            <input type="text" required name="url" id="url" placeholder="eg: https://risetku.com/academy/pre-test/quiz1" />
+        <form hx-post="/create" style="display: flex; flex-direction: column; max-width: 350px; gap: 0.5em;">
+            <div style="display: flex; flex-direction: column;">
+                <label for="url">URL</label>
+                <input type="text" required name="url" id="url"
+                    placeholder="eg: https://risetku.com/academy/pre-test/quiz1" />
+            </div>
+            <div style="display: flex; flex-direction: column;">
+                <label for="slug">Custom URL, will be used as <i>riset.in/newlink</i></label>
+                <input type="text" required name="slug" id="slug" placeholder="eg: newlink" />
+
+            </div>
+            <button style="padding: 0.75em 1em; border-radius: 9999px; cursor: pointer;">Create Link</button>
+        </form>
+        
+        <div style="margin-top: 0.5em;">
+            <p>By <a href="https://risetku.com">Risetku</a> | <a href="https://github.com/febriliankr">Github</a>
+            </p>
         </div>
-        <div style="display: flex; flex-direction: column;">
-            <label for="slug">Custom URL, will be used as <i>riset.in/newlink</i></label>
-            <input type="text" required name="slug" id="slug" placeholder="eg: newlink" />
-            
-        </div>
-        <button class=" btn btn-default">Submit</button>
-    </form>
-    <p>Made for Risetku.com | Github: febrilian.kr</p>
+    </main>
 </body>
 
 </html>
