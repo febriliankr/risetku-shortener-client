@@ -42,7 +42,7 @@ func Create(c echo.Context) error {
 		return c.String(http.StatusInternalServerError, "error")
 	}
 
-	return c.String(http.StatusOK, urlForm+" has been shortened to riset.in/"+slugForm)
+	return c.String(http.StatusOK, urlForm+" has been shortened to short.risetku.com/"+slugForm)
 }
 
 func Reroute(c echo.Context) error {
