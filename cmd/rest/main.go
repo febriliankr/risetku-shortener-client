@@ -14,6 +14,7 @@ const API_URL = "https://api.risetku.com"
 func main() {
 	e := echo.New()
 	e.Static("/", "static")
+	e.Static("/static", "static")
 	e.GET("/:slug", Reroute)
 	e.POST("/create", Create)
 	e.Logger.Fatal(e.Start(":5500"))
