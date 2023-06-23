@@ -1,0 +1,10 @@
+cmd: ./main
+cwd: /home/senaraic/risetku-shortener-client
+log:
+  file: ./immortal.log
+  age: 86400
+  num: 3
+  size: 10
+  timestamp: true
+wait: 60
+retries: 3
