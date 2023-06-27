@@ -12,6 +12,6 @@ RUN go mod tidy
 
 RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /go/bin/rest cmd/rest/*.go
 
-EXPOSE 5000
+EXPOSE 5500
 
 ENTRYPOINT ["/go/bin/rest"]

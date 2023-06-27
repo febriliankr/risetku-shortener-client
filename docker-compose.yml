@@ -1,13 +1,11 @@
 version: "3.9"
 services:
-  api:
+  risetku-shortener-client:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: risetku-api
-    env_file:
-      - .env
+    container_name: risetku-shortener-client
     ports:
-      - 5500:5000
+      - 5500:5500
     network_mode: bridge
     restart: unless-stopped
